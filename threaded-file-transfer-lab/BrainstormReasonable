@@ -1,0 +1,6 @@
+if two clients try to upload a file at the same time..
+
+Possible ways server will handle the file
+Reasonable:
+- server blocks other clients from uploading until one is complete
+- client assigns a tag for itself for server to distinguish between uploads
