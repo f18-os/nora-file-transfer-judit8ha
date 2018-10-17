@@ -32,6 +32,7 @@ class ServerThread(Thread):
         Thread.__init__(self, daemon=True)
         self.fsock, self.debug = FramedStreamSock(sock, debug), debug
         self.start()
+        self.join()
 
     def run(self):
         global available
@@ -52,11 +53,9 @@ while True:
     ClientWait.put(sock)
     receiving.acquire()
     ServerThread(ClientWait.get(), debug)
-    #ServerThread(sock, debug)
-    receiving.notify()
     receiving.release()
 
-while ClientWait.empty():
+
 
 
 
